@@ -29,6 +29,11 @@ void setPIN_Input(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
 	HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
 }
 
+/**********
+DHT11 is alive?
+alive -> 1
+dead -> 0
+**********/
 uint8_t dht11RstCheck(){
 	uint8_t timer = 0;
 	setPIN_Output(DHT11_GPIO_Port, DHT11_Pin);

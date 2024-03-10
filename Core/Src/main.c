@@ -94,7 +94,12 @@ void taskOLED(void *pvParm){
 			u8g2_DrawStr(&u8g2, 0, 20, displayTemp);
 			u8g2_DrawStr(&u8g2, 0, 40, displayHumi);
 			u8g2_SendBuffer(&u8g2);
-			
+			if(humi>=60){
+				HAL_GPIO_WritePin(LED_PB7_GPIO_Port, LED_PB7_Pin, 1);
+			}
+			else{
+				HAL_GPIO_WritePin(LED_PB7_GPIO_Port, LED_PB7_Pin, 0);
+			}
 		}else{
 			taskYIELD();
 		}
@@ -119,7 +124,7 @@ void taskDHT11(void *pvParm){
 		if(DHT11GetData(&humi, &temp) == 0){
 			xQueueSend(queueTemp, &temp, NULL);
 			xQueueSend(queueHumi, &humi, NULL);
-			printf("Temp:%.1f ℃\r\n", temp);
+			printf("Temp:%.1f C\r\n", temp);
 			printf("Humi:%.1f %%\r\n", humi);
 		}
 		
