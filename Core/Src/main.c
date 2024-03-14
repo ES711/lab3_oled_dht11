@@ -52,13 +52,19 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-QueueHandle_t queueTemp;
-QueueHandle_t queueHumi;
+QueueHandle_t queueDHT11;
 
 TaskHandle_t handleDHT11;
 TaskHandle_t handleOLED;
 
 u8g2_t u8g2;
+
+struct dht11{
+	float Temp;
+	float Humi;
+};
+
+struct dht11 dht11DATA;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -79,22 +85,20 @@ void taskOLED(void *pvParm){
 	u8g2_ClearBuffer(&u8g2);
 	u8g2_ClearDisplay(&u8g2);
 	u8g2_SetFont(&u8g2, u8g2_font_samim_16_t_all);
-	float temp = 0;
-	float humi = 0;
+	struct dht11 dht11DATA;
 	char displayTemp[20];
 	char displayHumi[20];
 	while(1){
 		
-		BaseType_t humiReceive = xQueueReceive(queueHumi, &humi, NULL);
-		BaseType_t tempReceive = xQueueReceive(queueTemp, &temp, NULL);
-		if((humiReceive == pdPASS) && (tempReceive == pdPASS)){
-			snprintf(displayTemp, sizeof(displayTemp), "Temp: %.1f C", temp);
-			snprintf(displayHumi, sizeof(displayHumi), "Humi: %.1f %%", humi);
+		BaseType_t dht11Receive = xQueueReceive(queueDHT11, &dht11DATA, NULL);
+		if(dht11Receive == pdPASS){
+			snprintf(displayTemp, sizeof(displayTemp), "Temp: %.1f C", dht11DATA.Temp);
+			snprintf(displayHumi, sizeof(displayHumi), "Humi: %.1f %%", dht11DATA.Humi);
 			u8g2_ClearBuffer(&u8g2);
 			u8g2_DrawStr(&u8g2, 0, 20, displayTemp);
 			u8g2_DrawStr(&u8g2, 0, 40, displayHumi);
 			u8g2_SendBuffer(&u8g2);
-			if(humi>=60){
+			if(dht11DATA.Humi>=60){
 				HAL_GPIO_WritePin(LED_PB7_GPIO_Port, LED_PB7_Pin, 1);
 			}
 			else{
@@ -117,15 +121,12 @@ run every 3s
 ***************/
 void taskDHT11(void *pvParm){
 	while(1){
-		float temp = 0;
-		float humi = 0;
 		
 		HAL_GPIO_WritePin(LED_B14_GPIO_Port, LED_B14_Pin, 1);
-		if(DHT11GetData(&humi, &temp) == 0){
-			xQueueSend(queueTemp, &temp, NULL);
-			xQueueSend(queueHumi, &humi, NULL);
-			printf("Temp:%.1f C\r\n", temp);
-			printf("Humi:%.1f %%\r\n", humi);
+		if(DHT11GetData(&dht11DATA.Humi, &dht11DATA.Temp) == 0){
+			xQueueSend(queueDHT11, &dht11DATA, NULL);
+			printf("Temp:%.1f C\r\n", dht11DATA.Temp);
+			printf("Humi:%.1f %%\r\n", dht11DATA.Humi);
 		}
 		
 		HAL_GPIO_WritePin(LED_B14_GPIO_Port, LED_B14_Pin, 0);
@@ -166,8 +167,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-	queueTemp = xQueueCreate(3, sizeof(float));
-	queueHumi = xQueueCreate(3, sizeof(float));
+	queueDHT11 = xQueueCreate(3, sizeof(dht11DATA));
 	
 	xTaskCreate(taskOLED, "OLED", 512, NULL, 1, &handleOLED);
 	xTaskCreate(taskDHT11, "DHT11", 128, NULL, 2, &handleDHT11);

@@ -3,9 +3,9 @@
 <title>Static Call Graph - [lab3_oled_dht11\lab3_oled_dht11.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image lab3_oled_dht11\lab3_oled_dht11.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sun Mar 10 15:07:06 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Thu Mar 14 15:42:19 2024
 <BR><P>
-<H3>Maximum Stack Usage =        336 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        328 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 taskDHT11 &rArr; DHT11GetData &rArr; __0sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_real
 <P>
@@ -1086,7 +1086,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
-<P><STRONG><a name="[64]"></a>main</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, main.o(.text.main))
+<P><STRONG><a name="[64]"></a>main</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_TIM_Base_Init &rArr; TIM_Base_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
@@ -1116,27 +1116,27 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[6c]"></a>taskDHT11</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, main.o(.text.taskDHT11))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = taskDHT11 &rArr; DHT11GetData &rArr; __0sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_real
+<P><STRONG><a name="[6c]"></a>taskDHT11</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, main.o(.text.taskDHT11))
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = taskDHT11 &rArr; DHT11GetData &rArr; __0sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_real
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DHT11GetData
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
 </UL>
-<P><STRONG><a name="[6b]"></a>taskOLED</STRONG> (Thumb, 296 bytes, Stack size 56 bytes, main.o(.text.taskOLED))
+<P><STRONG><a name="[6b]"></a>taskOLED</STRONG> (Thumb, 268 bytes, Stack size 56 bytes, main.o(.text.taskOLED))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = taskOLED &rArr; u8g2_DrawStr &rArr; u8g2_draw_string &rArr; u8g2_font_decode_glyph &rArr; u8g2_DrawHVLine
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u8g2_SendBuffer
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u8g2_DrawStr
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u8g2_SetFont
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u8g2_ClearDisplay
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;u8g2_ClearBuffer
