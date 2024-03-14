@@ -168,8 +168,14 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 	queueDHT11 = xQueueCreate(3, sizeof(dht11DATA));
-	
-	xTaskCreate(taskOLED, "OLED", 512, NULL, 1, &handleOLED);
+	/***********************
+	memory allocate
+	usStackDepth -> const uint16_t  
+	1word = 2bytes
+	taskOLED -> 256 * 2 = 512 bytes = 0.5 kB
+	taskDHT11 -> 128 * 2 = 256 bytes = 0.25 kB
+	***********************/
+	xTaskCreate(taskOLED, "OLED", 256, NULL, 1, &handleOLED);
 	xTaskCreate(taskDHT11, "DHT11", 128, NULL, 2, &handleDHT11);
 	printf("StartScheduler \r\n");
 	vTaskStartScheduler();
