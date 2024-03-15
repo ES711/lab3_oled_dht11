@@ -85,7 +85,6 @@ void taskOLED(void *pvParm){
 	u8g2_ClearBuffer(&u8g2);
 	u8g2_ClearDisplay(&u8g2);
 	u8g2_SetFont(&u8g2, u8g2_font_samim_16_t_all);
-	struct dht11 dht11DATA;
 	char displayTemp[20];
 	char displayHumi[20];
 	while(1){
@@ -180,6 +179,7 @@ int main(void)
 	printf("StartScheduler \r\n");
 	vTaskStartScheduler();
   /* USER CODE END 2 */
+
 
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */

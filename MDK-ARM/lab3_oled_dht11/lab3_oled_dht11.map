@@ -8085,54 +8085,54 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        84          0          0          0       1720      44752   cmsis_os2.o
-      1408          0          9          0          0       5048   dht11.o
-       260          0          0          0          0       4311   gpio.o
-       734          0          0          0      15392       5605   heap_4.o
-       218          0          0          0         84       5337   i2c.o
-       190          0          0          0          0       2329   list.o
-       784        104          0          0        168      10879   main.o
-       576         58          0          0        129       7733   oled.o
-       900         16          0          4          8       4188   port.o
-      1702          0          0          0         64      28277   queue.o
-        36          8        428          0       1024        840   startup_stm32f429xx.o
-        92          0          0          8          4       7695   stm32f4xx_hal.o
-       156          0          0          0          0      10687   stm32f4xx_hal_cortex.o
-       466          0          0          0          0       5302   stm32f4xx_hal_gpio.o
-      1518          0          0          0          0      53712   stm32f4xx_hal_i2c.o
-       124          0          0          0          0       4119   stm32f4xx_hal_i2c_ex.o
-        66          0          0          0          0       3738   stm32f4xx_hal_msp.o
-      1482          0          0          0          0       7467   stm32f4xx_hal_rcc.o
-      1364          0          0          0          0      55035   stm32f4xx_hal_tim.o
-       186          0          0          0          0      21240   stm32f4xx_hal_tim_ex.o
-       180          0          0          0         72       7404   stm32f4xx_hal_timebase_tim.o
-       332          0          0          0          0      31717   stm32f4xx_hal_uart.o
-        36          0          0          0          0       4468   stm32f4xx_it.o
-        18          0         24          4          0       2692   system_stm32f4xx.o
-      3090          8          0          0       1280      43046   tasks.o
-       162          0          0          0         72       5201   tim.o
-      1086         20          5          0        300      16124   timers.o
-       266          0          0          0          0       8032   u8g2_buffer.o
-        30          0          0          0          0       4401   u8g2_cleardisplay.o
-        16          0          0          0       1024        704   u8g2_d_memory.o
-        70          0          0          0          0       4581   u8g2_d_setup.o
-      1938         16          0          0          0      44215   u8g2_font.o
-         0          0       8356          0          0     103544   u8g2_fonts.o
-       298          0          0          0          0       8119   u8g2_hvline.o
-       104          0          0          0          0       5166   u8g2_intersection.o
-       632          0          0          0          0       7670   u8g2_ll_hvline.o
-       296          0         12          0          0      12691   u8g2_setup.o
-        26          0          0          0          0      12099   u8x8_8x8.o
-        58          0          0          0          0      12274   u8x8_byte.o
-       686          8          0          0          1      16920   u8x8_cad.o
-       332          6        101          0          0       6804   u8x8_d_ssd1306_128x64_noname.o
-       198          0          0          0          0       4851   u8x8_display.o
-         8          0          0          0          0       2074   u8x8_gpio.o
-        48          0          0          0          0       3050   u8x8_setup.o
-       208          0          0          0         68       5471   usart.o
+        84          0          0          0       1720      44747   cmsis_os2.o
+      1408          0          9          0          0       5043   dht11.o
+       260          0          0          0          0       4306   gpio.o
+       734          0          0          0      15392       5600   heap_4.o
+       218          0          0          0         84       5332   i2c.o
+       190          0          0          0          0       2324   list.o
+       784        104          0          0        168      10860   main.o
+       576         58          0          0        129       7728   oled.o
+       900         16          0          4          8       4183   port.o
+      1702          0          0          0         64      28272   queue.o
+        36          8        428          0       1024        832   startup_stm32f429xx.o
+        92          0          0          8          4       7690   stm32f4xx_hal.o
+       156          0          0          0          0      10682   stm32f4xx_hal_cortex.o
+       466          0          0          0          0       5297   stm32f4xx_hal_gpio.o
+      1518          0          0          0          0      53707   stm32f4xx_hal_i2c.o
+       124          0          0          0          0       4114   stm32f4xx_hal_i2c_ex.o
+        66          0          0          0          0       3733   stm32f4xx_hal_msp.o
+      1482          0          0          0          0       7462   stm32f4xx_hal_rcc.o
+      1364          0          0          0          0      55030   stm32f4xx_hal_tim.o
+       186          0          0          0          0      21235   stm32f4xx_hal_tim_ex.o
+       180          0          0          0         72       7399   stm32f4xx_hal_timebase_tim.o
+       332          0          0          0          0      31712   stm32f4xx_hal_uart.o
+        36          0          0          0          0       4463   stm32f4xx_it.o
+        18          0         24          4          0       2687   system_stm32f4xx.o
+      3090          8          0          0       1280      43041   tasks.o
+       162          0          0          0         72       5196   tim.o
+      1086         20          5          0        300      16119   timers.o
+       266          0          0          0          0       8027   u8g2_buffer.o
+        30          0          0          0          0       4396   u8g2_cleardisplay.o
+        16          0          0          0       1024        699   u8g2_d_memory.o
+        70          0          0          0          0       4576   u8g2_d_setup.o
+      1938         16          0          0          0      44210   u8g2_font.o
+         0          0       8356          0          0     103539   u8g2_fonts.o
+       298          0          0          0          0       8114   u8g2_hvline.o
+       104          0          0          0          0       5161   u8g2_intersection.o
+       632          0          0          0          0       7665   u8g2_ll_hvline.o
+       296          0         12          0          0      12686   u8g2_setup.o
+        26          0          0          0          0      12094   u8x8_8x8.o
+        58          0          0          0          0      12269   u8x8_byte.o
+       686          8          0          0          1      16915   u8x8_cad.o
+       332          6        101          0          0       6799   u8x8_d_ssd1306_128x64_noname.o
+       198          0          0          0          0       4846   u8x8_display.o
+         8          0          0          0          0       2069   u8x8_gpio.o
+        48          0          0          0          0       3045   u8x8_setup.o
+       208          0          0          0         68       5466   usart.o
 
     ----------------------------------------------------------------------
-     22648        256       8972         16      21420     661612   Object Totals
+     22648        256       8972         16      21420     661370   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        184         12          5          0         10          0   (incl. Padding)
 
@@ -8200,8 +8200,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     28616        410       9036         20      21420     662444   Grand Totals
-     28616        410       9036         20      21420     662444   ELF Image Totals
+     28616        410       9036         20      21420     662202   Grand Totals
+     28616        410       9036         20      21420     662202   ELF Image Totals
      28616        410       9036         20          0          0   ROM Totals
 
 ==============================================================================
